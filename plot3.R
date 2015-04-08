@@ -28,7 +28,12 @@ sm3 <- ds$Sub_metering_3
 
 dt<-ds$datetime
 
+#Create png device
+png(filename="plot3.png",width=480,height=480)
+
 #Build Plot
+Sys.setlocale("LC_ALL","C")
+par(mar=c(4,4,1,,1))
 plot(dt,sm1,xlab="",ylab="Energy sub metering",type="n")
 lines(dt,sm1)
 lines(dt,sm2,col="red")
@@ -39,8 +44,7 @@ legend("topright",
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 
-##Create PNG File
-dev.copy(png, file ="plot3.png")
+##Close PNG File
 dev.off()
 
 

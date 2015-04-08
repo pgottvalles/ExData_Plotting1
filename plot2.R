@@ -22,6 +22,7 @@ GAP<-as.numeric(levels(GAP))[GAP]
 dt<-ds$datetime
 
 #Build Plot
+Sys.setlocale("LC_ALL","C")
 plot(dt,GAP,xlab="",ylab="Global Active Power (kilowatts)",type="n")
 lines(dt,GAP)
 

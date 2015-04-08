@@ -36,6 +36,8 @@ sm3 <- ds$Sub_metering_3
 
 dt<-ds$datetime
 
+## Create png device
+png(filename="plot4.png",width=480,height=480)
 
 #Build Plot
 par(mfrow=c(2,2),mar=c(4,4,1,1))
@@ -49,6 +51,7 @@ plot(dt,Vltg,xlab="datetime",ylab="Voltage",type="n")
 lines(dt,Vltg)
 
 ##Third Chart
+Sys.setlocale("LC_ALL","C")
 plot(dt,sm1,xlab="",ylab="Energy sub metering",type="n")
 lines(dt,sm1)
 lines(dt,sm2,col="red")
@@ -65,6 +68,5 @@ lines(dt,GRP)
 
 
 
-##Create PNG File
-dev.copy(png, file ="plot4.png")
+##Close PNG File
 dev.off()
